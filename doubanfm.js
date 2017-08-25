@@ -1,6 +1,6 @@
 var blum_list = {"blum":[
             // 心情 / 场景
-/*            {'name': 'work', 'channel_id': 153},
+            {'name': 'work', 'channel_id': 153},
             {'name': 'outdoors', 'channel_id': 151},
             {'name': 'rest', 'channel_id': 152},
             {'name': 'excited', 'channel_id': 154},
@@ -33,7 +33,8 @@ var blum_list = {"blum":[
             {'name': 'world', 'channel_id': 187},
             {'name': 'Bruce', 'channel_id': 188},
             {'name': 'Latin', 'channel_id': 189},
-            {'name': 'Reggae', 'channel_id': 190}*/
+            {'name': 'Reggae', 'channel_id': 190}
+/*
             {'name': '工作学习', 'channel_id': 153},
             {'name': '户外', 'channel_id': 151},
             {'name': '休息', 'channel_id': 152},
@@ -69,6 +70,7 @@ var blum_list = {"blum":[
             {'name': '拉丁', 'channel_id': 189},
             {'name': '雷鬼', 'channel_id': 190},
             {'name': '小清新', 'channel_id': 76}
+*/
 ]};
 
 (function(plugin) {
@@ -90,7 +92,8 @@ var blum_list = {"blum":[
     });
 
     plugin.addURI(PREFIX+"channel_id:(.*)", function(page, id) {
-    var song, sid;
+    var song;
+    var sid = 32698;
         for(var i = 0; i < 8; i++)
         {
             if(i == 0)
@@ -103,15 +106,15 @@ var blum_list = {"blum":[
             }
             song = JSON.parse(response_text).song[0];
             sid = song.sid;
-            print(song.url);
+            //print(song.url);
             page.appendItem(PREFIX + 'url:' + song.url, 'video',{title: song.title, icon: song.picture});
         }
     });
-    
+
     plugin.addURI(plugin.getDescriptor().id + ':start', function(page) {
         for(var i in blum_list.blum)
         {
-            print(blum_list.blum[i].name);
+            //print(blum_list.blum[i].name);
             page.appendItem(PREFIX + 'channel_id:' + blum_list.blum[i].channel_id, 'directory',{title: blum_list.blum[i].name });
         }
     });

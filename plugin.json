@@ -4,7 +4,7 @@
 	"homepage": "http://",
 	"title": "douban.fm",
 	"synopsis": "music for douban fm",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"file": "doubanfm.js",
 	"showtimeVersion": "4.8",
 	"type": "ecmascript",
